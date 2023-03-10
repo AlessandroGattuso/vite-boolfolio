@@ -1,9 +1,15 @@
 <script>
+  import {store} from '../store.js';
+
   export default {
     name: "ProjectCard",
     props:{
       project: Object,
-      baseUrl: String
+    },
+    data(){
+      return{
+        store
+      }
     }
   }
 </script>
@@ -11,7 +17,7 @@
   <div class="card" style="width: 17rem;">
     <div class="card-body">
       <div class="card-img-top">
-        <img :src="project.cover_image != null ? `${baseUrl}/storage/${project.cover_image}` : 'https://picsum.photos/300/200'" class="img-fluid" :alt="project.cover_image">
+        <img :src="project.cover_image != null ? `${this.store.baseUrl}/storage/${project.cover_image}` : 'https://picsum.photos/300/200'" class="img-fluid" :alt="project.cover_image">
       </div>
       <div class="card-title">
         <h5>{{project.title}}</h5>
@@ -24,9 +30,13 @@
       <div class="card-text">
         {{ project.description }}
       </div>
-      <div class="mt-5">
-        <a href="#" class="btn btn-sm btn-success">Leggi</a>
-      </div>
+      <!-- <div class="mt-5">
+        <a href="" class="btn btn-sm btn-success">Leggi</a>
+      </div> -->
+      <router-link :to="{ name: 'single_project', params: { slug: project.slug} }" 
+                   class="btn btn-sm btn-success">
+        Leggi
+      </router-link>
     </div>
   </div>
 </template>

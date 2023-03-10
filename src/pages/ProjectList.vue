@@ -1,16 +1,18 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
+import {store} from '../store.js';
+
 export default {
-  name: "ProjectMain",
+  name: "ProjectList",
   components:{
     ProjectCard
   },
   data(){
     return{
+      store,
       projects: [],
       loading: true,
-      baseUrl: 'http://127.0.0.1:8000',
       currentPage: 1,
       lastPage: null
     } 
@@ -51,7 +53,7 @@ export default {
           </div>
           <div v-else class="d-flex justify-content-between flex-wrap w-75 my-3">
             <template v-for="project in projects" :key="project.id">
-              <ProjectCard :project="project" :baseUrl="baseUrl" />
+              <ProjectCard :project="project"/>
             </template>
           </div>
         </div>

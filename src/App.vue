@@ -1,14 +1,23 @@
 <script>
-import ProjectMain from './components/ProjectMain.vue';
+import AppFooterVue from './components/AppFooter.vue';
+//import ProjectMain from './components/ProjectMain.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
+
 export default{
   components:{
-    ProjectMain
+    //ProjectMain
+    AppHeader,
+    AppFooter
   }
 }
 </script>
 
 <template>
- <ProjectMain/>
+  <AppHeader/>
+  <router-view/>
+  <AppFooter/>
+ <!-- <ProjectMain/> -->
 </template>
 
 <style lang="scss">
