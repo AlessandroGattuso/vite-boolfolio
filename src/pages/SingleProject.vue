@@ -14,8 +14,14 @@ export default {
   mounted(){
     this.loading = true;
     axios.get(`${this.store.baseUrl}/api/projects/${this.$route.params.slug}`).then((response) => {
-      this.project = response.data.project;
-      this.loading = false;
+      if(response.data.success){
+        this.project = response.data.project;
+        this.loading = false;
+      }
+      else{
+        this.$router.push({name: 'not-found'});
+      }
+    
     });
   }
 }
@@ -24,11 +30,11 @@ export default {
   <div class="container">
     <div v-if="loading"></div>
     <div v-else class="d-flex">
-        <div class="row g-0 mt-4 d-flex">
+        <div class="row g-0 my-4 d-flex">
           <div class="col-4">
             <img :src="project.cover_image ? `${this.store.baseUrl}/storage/${project.cover_image}` : 'https://picsum.photos/300/200'" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-5">
+          <div class="col-5 ms-2">
             <div class="card-body">
               <h5 class="card-title">{{ project.title }}</h5>
               <p class="card-text">{{ project.description }}</p>

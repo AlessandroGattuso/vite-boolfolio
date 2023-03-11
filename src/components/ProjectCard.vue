@@ -33,7 +33,7 @@
       <!-- <div class="mt-5">
         <a href="" class="btn btn-sm btn-success">Leggi</a>
       </div> -->
-      <router-link :to="{ name: 'single_project', params: { slug: project.slug} }" 
+      <router-link :to="{ name: 'single-project', params: { slug: project.slug} }" 
                    class="btn btn-sm btn-success">
         Leggi
       </router-link>

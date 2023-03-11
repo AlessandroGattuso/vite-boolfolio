@@ -11,7 +11,7 @@ export default {
         },
         {
           label: 'Blog',
-          routeName: 'project_list'
+          routeName: 'project-list'
         }
       ]
     }
