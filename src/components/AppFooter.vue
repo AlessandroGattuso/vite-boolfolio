@@ -13,7 +13,7 @@ export default {
           </div>
         </div>
         <div class="col-4 offset-4">
-          Menu
+            Menu
         </div>
       </div>
     </div>

@@ -12,6 +12,10 @@ export default {
         {
           label: 'Blog',
           routeName: 'project-list'
+        },
+        {
+          label: 'Contatti',
+          routeName: 'contacts'
         }
       ]
     }
@@ -21,7 +25,7 @@ export default {
 </script>
 <template lang="">
   <header>
-    <nav class="nav navbar-expand-md background-nav">
+    <nav class="nav navbar-expand-md background-green">
         <div class="container d-flex py-3">
           <div class="navbar-brand">
             <img src="../assets/vue.svg" alt="logo not found">
@@ -43,9 +47,6 @@ export default {
   </header>
 </template>
 <style lang="scss" scoped>
-  .background-nav{
-    background-color: rgb(0, 90, 91)
-  }
   .img{
     width: 300px;
   }

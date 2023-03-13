@@ -48,7 +48,7 @@ export default {
           <h2 class="text-center">Boolpress</h2>
         </div>
         <div class="col-12 w-100 d-flex justify-content-center">
-          <div v-if="loading" class="d-flex justify-content-center">
+          <div v-if="loading" class="d-flex justify-content-center m-5">
             <div class="loader"></div>
           </div>
           <div v-else class="d-flex justify-content-between flex-wrap w-75 my-3">
