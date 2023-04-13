@@ -19,7 +19,6 @@ export default {
     },
     methods:{
       sendData(){
-        this.errors = 'ciao';
         const data = {
           name: this.name,
           surname: this.surname,
@@ -29,7 +28,8 @@ export default {
         }
 
         this.loading = true;
-
+        this.errors = {};
+        
         axios.post(`${this.store.baseUrl}/api/contacts`, data).then((response) => {
             if(!response.data.success){
               this.errors = response.data.errors;
@@ -41,8 +41,8 @@ export default {
               this.email = '';
               this.message = '';
               this.success = true;
-              this.loading = false;
             }
+              this.loading = false;
         });
       }
     }
@@ -96,7 +96,7 @@ export default {
               </div>
               <div class="col-12 col-md-5">
                 <label class="control-label" for="email">Email</label>
-                <input type="text" class="form-control" name="email" id="emailId" v-model="email">           
+                <input type="email" class="form-control" name="email" id="emailId" v-model="email">           
               </div>
               <div class="col-12 col-md-5">
                 <label class="control-label" for="telefono">Telefono</label>
